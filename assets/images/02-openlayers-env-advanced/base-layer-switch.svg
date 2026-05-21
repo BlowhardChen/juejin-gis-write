@@ -1,0 +1,49 @@
+<svg width="1200" height="620" viewBox="0 0 1200 620" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc">
+  <title id="title">OpenLayers 公共底图切换</title>
+  <desc id="desc">展示 OSM、天地图、高德底图通过统一工厂函数接入 OpenLayers TileLayer。</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#f7fafc"/>
+      <stop offset="100%" stop-color="#edf6ff"/>
+    </linearGradient>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="10" stdDeviation="14" flood-color="#16324f" flood-opacity="0.13"/>
+    </filter>
+    <marker id="arrow" markerWidth="12" markerHeight="12" refX="10" refY="6" orient="auto">
+      <path d="M2 2 L10 6 L2 10 Z" fill="#315e8a"/>
+    </marker>
+  </defs>
+  <rect width="1200" height="620" rx="28" fill="url(#bg)"/>
+  <text x="60" y="74" font-family="Arial, 'Microsoft YaHei', sans-serif" font-size="34" font-weight="700" fill="#143450">公共底图替换思路</text>
+  <text x="60" y="112" font-family="Arial, 'Microsoft YaHei', sans-serif" font-size="18" fill="#5b7080">OSM 适合快速开发，国内项目通常需要切到天地图、高德或企业自有瓦片服务。</text>
+
+  <g filter="url(#shadow)">
+    <rect x="66" y="182" width="270" height="260" rx="18" fill="#ffffff"/>
+    <rect x="465" y="182" width="270" height="260" rx="18" fill="#ffffff"/>
+    <rect x="864" y="182" width="270" height="260" rx="18" fill="#ffffff"/>
+  </g>
+
+  <text x="106" y="232" font-family="Arial, 'Microsoft YaHei', sans-serif" font-size="25" font-weight="700" fill="#204a6b">OSM</text>
+  <text x="106" y="274" font-family="Arial, 'Microsoft YaHei', sans-serif" font-size="18" fill="#526b7c">开发调试友好</text>
+  <text x="106" y="310" font-family="Arial, 'Microsoft YaHei', sans-serif" font-size="18" fill="#526b7c">无需 token</text>
+  <text x="106" y="346" font-family="Arial, 'Microsoft YaHei', sans-serif" font-size="18" fill="#526b7c">国内访问不稳定</text>
+  <text x="106" y="388" font-family="Consolas, monospace" font-size="17" fill="#264f60">new OSM()</text>
+
+  <text x="505" y="232" font-family="Arial, 'Microsoft YaHei', sans-serif" font-size="25" font-weight="700" fill="#204a6b">天地图</text>
+  <text x="505" y="274" font-family="Arial, 'Microsoft YaHei', sans-serif" font-size="18" fill="#526b7c">政企项目常见</text>
+  <text x="505" y="310" font-family="Arial, 'Microsoft YaHei', sans-serif" font-size="18" fill="#526b7c">需要 tk</text>
+  <text x="505" y="346" font-family="Arial, 'Microsoft YaHei', sans-serif" font-size="18" fill="#526b7c">底图和注记分层</text>
+  <text x="505" y="388" font-family="Consolas, monospace" font-size="17" fill="#264f60">vec_w / cva_w</text>
+
+  <text x="904" y="232" font-family="Arial, 'Microsoft YaHei', sans-serif" font-size="25" font-weight="700" fill="#204a6b">高德</text>
+  <text x="904" y="274" font-family="Arial, 'Microsoft YaHei', sans-serif" font-size="18" fill="#526b7c">国内加载体验好</text>
+  <text x="904" y="310" font-family="Arial, 'Microsoft YaHei', sans-serif" font-size="18" fill="#526b7c">坐标体系需注意</text>
+  <text x="904" y="346" font-family="Arial, 'Microsoft YaHei', sans-serif" font-size="18" fill="#526b7c">适合业务底图</text>
+  <text x="904" y="388" font-family="Consolas, monospace" font-size="17" fill="#264f60">style=7 / 6</text>
+
+  <line x1="338" y1="312" x2="447" y2="312" stroke="#315e8a" stroke-width="4" marker-end="url(#arrow)"/>
+  <line x1="737" y1="312" x2="846" y2="312" stroke="#315e8a" stroke-width="4" marker-end="url(#arrow)"/>
+
+  <rect x="166" y="492" width="868" height="58" rx="14" fill="#dceefc"/>
+  <text x="206" y="529" font-family="Arial, 'Microsoft YaHei', sans-serif" font-size="20" fill="#244962">统一封装成 createBaseLayer(provider)，业务侧只关心 provider，不直接拼瓦片 URL。</text>
+</svg>
